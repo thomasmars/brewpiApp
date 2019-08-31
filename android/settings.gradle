@@ -1,0 +1,14 @@
+include ':app'
+include ':react-native-bluetooth-serial-next'
+project(':react-native-bluetooth-serial-next').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bluetooth-serial-next/android')
+include ':react-native-ble-plx'
+project(':react-native-ble-plx').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ble-plx/android')
+include ':react-native-network-info'
+project(':react-native-network-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-network-info/android')
+
+// Import gradle helpers for unimodules.
+apply from: '../node_modules/react-native-unimodules/gradle.groovy'
+
+// Include unimodules.
+includeUnimodulesProjects(
+)
