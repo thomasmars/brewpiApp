@@ -8,6 +8,9 @@
     android:name="beer.pi.permission.C2D_MESSAGE"
     android:protectionLevel="signature"/>
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <!-- These are required permissions to make the app run -->
   <uses-permission android:name="beer.pi.permission.C2D_MESSAGE" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -25,9 +28,6 @@
   <uses-permission android:name="android.permission.VIBRATE" />
   <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-  <uses-permission android:name="android.permission.BLUETOOTH" />
-  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
   <!-- These require runtime permissions on M -->
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -42,12 +42,11 @@
   <uses-permission android:name="android.permission.WRITE_SETTINGS" />
   <!-- END OPTIONAL PERMISSIONS -->
 
-  <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+  <!-- ADD TEST PERMISSIONS HERE -->
 
   <uses-feature android:glEsVersion="0x00020000" android:required="false" />
   <uses-feature android:name="android.software.leanback" android:required="false" />
   <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-  <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
 
   <application
     android:name=".MainApplication"
@@ -117,18 +116,15 @@
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- WHEN_PREPARING_SHELL_REMOVE_FROM_HERE -->
     <!-- ADD DEV SETTINGS HERE -->
+    <!-- BEGIN_SDK_35 -->
+    <activity android:name="abi35_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
+    <!-- END_SDK_35 -->
     <!-- BEGIN_SDK_34 -->
     <activity android:name="abi34_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- END_SDK_34 -->
     <!-- BEGIN_SDK_33 -->
     <activity android:name="abi33_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- END_SDK_33 -->
-    <!-- BEGIN_SDK_32 -->
-    <activity android:name="abi32_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
-    <!-- END_SDK_32 -->
-    <!-- BEGIN_SDK_31 -->
-    <activity android:name="abi31_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
-    <!-- END_SDK_31 -->
     <!-- WHEN_PREPARING_SHELL_REMOVE_TO_HERE -->
 
     <activity
@@ -161,10 +157,6 @@
       android:name=".oauth.OAuthResultActivity">
     </activity>
 
-    <activity
-      android:name="abi32_0_0.expo.modules.appauth.AppAuthBrowserActivity">
-    </activity>
-
     <!-- START OF STRIPE SCHEMES -->
     <activity
         android:exported="true"
@@ -175,59 +167,52 @@
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="expo.modules.payments.stripe.97947f45-e384-4e1a-8324-60c06a2b4e0f" />
+            <data android:scheme="expo.modules.payments.stripe.bdeafd81-5ba8-42dc-a187-81f8cf115086" />
         </intent-filter>
     </activity>
     <!-- Versioned Activity for Stripe -->
-	<activity
-		android:exported="true"
-		android:launchMode="singleTask"
-		android:name="abi34_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
-		android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-		<intent-filter>
-			<action android:name="android.intent.action.VIEW" />
-	      <category android:name="android.intent.category.DEFAULT" />
-	      <category android:name="android.intent.category.BROWSABLE" />
-	      <data android:scheme="abi34_0_0.expo.modules.payments.stripe" />
-		</intent-filter>
-	</activity>
-	<activity
-		android:exported="true"
-		android:launchMode="singleTask"
-		android:name="abi33_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
-		android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-		<intent-filter>
-			<action android:name="android.intent.action.VIEW" />
-	      <category android:name="android.intent.category.DEFAULT" />
-	      <category android:name="android.intent.category.BROWSABLE" />
-	      <data android:scheme="abi33_0_0.expo.modules.payments.stripe" />
-		</intent-filter>
-	</activity>
-	<activity
-		android:exported="true"
-		android:launchMode="singleTask"
-		android:name="abi32_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
-		android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-		<intent-filter>
-			<action android:name="android.intent.action.VIEW" />
-	      <category android:name="android.intent.category.DEFAULT" />
-	      <category android:name="android.intent.category.BROWSABLE" />
-	      <data android:scheme="abi32_0_0.expo.modules.payments.stripe" />
-		</intent-filter>
-	</activity>
+		<!-- BEGIN_SDK_abi35_0_0 -->
+		<activity
+			android:exported="true"
+			android:launchMode="singleTask"
+			android:name="abiabi35_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+					<category android:name="android.intent.category.DEFAULT" />
+					<category android:name="android.intent.category.BROWSABLE" />
+					<data android:scheme="abiabi35_0_0.expo.modules.payments.stripe" />
+			</intent-filter>
+		</activity>
+		<!-- END_SDK_abi35_0_0 -->
+    <!-- BEGIN_SDK_34 -->
     <activity
-        android:exported="true"
-        android:launchMode="singleTask"
-        android:name="abi31_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="abi31_0_0.expo.modules.payments.stripe" />
-        </intent-filter>
+      android:exported="true"
+      android:launchMode="singleTask"
+      android:name="abi34_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+          <data android:scheme="abi34_0_0.expo.modules.payments.stripe" />
+      </intent-filter>
     </activity>
-
+    <!-- END_SDK_34 -->
+    <!-- BEGIN_SDK_33 -->
+    <activity
+      android:exported="true"
+      android:launchMode="singleTask"
+      android:name="abi33_0_0.expo.modules.payments.stripe.RedirectUriReceiver"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+          <data android:scheme="abi33_0_0.expo.modules.payments.stripe" />
+      </intent-filter>
+    </activity>
+    <!-- END_SDK_33 -->
     <!-- END OF STRIPE SCHEMES -->
 
     <activity
@@ -362,12 +347,19 @@
       android:value="AIzaSyDh7eDB9snEFSYtf-k0gfxA45HFoR0L--I"/>
     <!-- END GOOGLE MAPS CONFIG -->
 
+    <!-- ADD GOOGLE MOBILE ADS CONFIG HERE -->
+    <!-- BEGIN GOOGLE MOBILE ADS CONFIG -->
+    <meta-data
+      android:name="com.google.android.gms.ads.APPLICATION_ID"
+      android:value="ca-app-pub-3940256099942544~3347511713"/>
+    <!-- END GOOGLE MOBILE ADS CONFIG -->
+
     <!-- ADD BRANCH CONFIG HERE -->
 
     <!-- The Facebook SDK runs FacebookInitProvider on startup and crashes if there isn't an ID here -->
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb0"/>
 
-    <meta-data android:name="standaloneStripeScheme" android:value="97947f45-e384-4e1a-8324-60c06a2b4e0f" />
+    <meta-data android:name="standaloneStripeScheme" android:value="bdeafd81-5ba8-42dc-a187-81f8cf115086" />
   </application>
 
 </manifest>

@@ -13,9 +13,7 @@ import okhttp3.OkHttpClient;
 
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
-import com.nuttawutmalee.RCTBluetoothSerial.*;
-import com.polidea.reactnativeble.BlePackage;
-import com.pusherman.networkinfo.RNNetworkInfoPackage;
+import com.nuttawutmalee.RCTBluetoothSerial.RCTBluetoothSerialPackage;
 
 public class MainApplication extends ExpoApplication implements AppLoaderPackagesProviderInterface<ReactPackage> {
 
@@ -32,9 +30,7 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
 
         // Needed for `react-native link`
         // new MainReactPackage(),
-            new BlePackage(),
-            new RCTBluetoothSerialPackage(),
-            new RNNetworkInfoPackage()
+            new RCTBluetoothSerialPackage()
     );
   }
 
